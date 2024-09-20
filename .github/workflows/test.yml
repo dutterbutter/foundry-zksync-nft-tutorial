@@ -20,10 +20,8 @@ jobs:
         with:
           submodules: recursive
 
-      - name: download binaries
-        run: |
-          wget -qc https://github.com/matter-labs/foundry-zksync/releases/download/nightly/foundry_nightly_linux_amd64.tar.gz -O - | tar -xz
-          ./forge -V && ./cast -V
+      - name: Install Foundry
+        uses: dutterbutter/foundry-zksync-toolchain@v1
 
       - name: Show Forge version
         run: |
